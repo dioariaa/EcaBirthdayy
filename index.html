@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Playlist Of Love — Home</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ✅ Load script AFTER DOM -->
+  <script src="script.js" defer></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body data-audio="assets/audio/index.mp3">
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">❤️ Our Playlist Of Love</div>
+      <nav class="nav">
+        <a class="active" href="#">Welcomee</a>
+        <a href="album.html">Our Love Album</a>
+        <!-- ✅ Button to jump straight to playlist autoplay -->
+        <a href="track1.html" data-autoplay-next>Start Playlist →</a>
+        <a href="#">For marisa fitriana w...</a>
+      </nav>
+    </aside>
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="home-pill">🏠 Home</div>
+      <div class="search">
+        <span>🔎</span>
+        <input placeholder="Search" />
+      </div>
+      <div class="date">08 November 2025</div>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+
+      <!-- Hero -->
+      <section class="hero">
+        <img src="assets/Home.jpg" alt="cover" class="cover" />
+
+        <div>
+          <h1 class="h-title">Happy Birthday My Love</h1>
+          <div class="meta">
+            <span>👤 Marisa Fitriana Wulandari</span>
+            <span>•</span>
+            <span>Our Memories</span>
+            <span>•</span>
+            <span>2025 · June</span>
+          </div>
+
+          <div class="controls">
+            <button class="btn-play" title="Play" aria-label="Play or Pause">▶</button>
+            <button class="btn-ghost" style="color:white">♡</button>
+            <button class="btn-ghost" style="color:white">＋</button>
+            <button class="btn-ghost" style="color:white">⇩</button>
+            <button class="btn-ghost" style="color:white">⤴</button>
+            <button class="btn-ghost" style="color:white">⋯</button>
+          </div>
+
+          <div class="chips">
+            <span class="chip">Love Story</span>
+            <span class="chip">Dreamland</span>
+            <span class="chip">Sweet Nights</span>
+            <span class="chip">Soft</span>
+          </div>
+
+          <div class="contributors">
+            <div class="person">
+              <img src="assets/Profil01.jpg" class="avatar" alt="dio">
+              <div>
+                <div>Dio Aria Mahesa</div>
+                <div class="role">Boyfiee</div>
+              </div>
+            </div>
+            <div class="person">
+              <img src="assets/Profil02.jpg" class="avatar" alt="marisa">
+              <div>
+                <div>Marisa Fitriana Wulandari</div>
+                <div class="role">Mine &lt;3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lyrics -->
+      <div class="tabs" style="margin-top:16px">
+        <span class="active">Lyrics</span>
+      </div>
+
+      <section class="lyrics">
+        <p class="lyric-line">Late night talks and silly laughs,</p>
+        <p class="lyric-line">Counting days on our telegraph.</p>
+        <p class="lyric-line">Screens between, yet souls collide,</p>
+        <p class="lyric-line">You’re my joy, my constant guide.</p>
+        <p class="lyric-line">Birthday wishes wrapped in rhyme,</p>
+        <p class="lyric-line">A little song to mark our time.</p>
+        <p class="lyric-line lyric-muted">Every beat of this track is for you.</p>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>

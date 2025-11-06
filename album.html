@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Love Album — Album</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- load audio controller -->
+  <script src="script.js" defer></script>
+</head>
+
+<!-- 🔊 set sumber audio album -->
+<body data-audio="assets/audio/album.mp3">
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">❤️ Our Playlist Of Love</div>
+      <nav class="nav">
+        <a href="index.html">Welcomee</a>
+        <a class="active" href="album.html">Our Love Album</a>
+        <a href="#">Made With Love</a>
+        <a href="#">For marisa fitriana w...</a>
+      </nav>
+    </aside>
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="home-pill">💿 Album</div>
+      <div class="search"><span>🔎</span><input placeholder="Search" /></div>
+      <div class="date">08 November 2025</div>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+      <!-- Album hero -->
+      <section class="album-hero">
+        <img class="album-cover" src="assets/CoverAlbum.jpg" alt="Our Love Album cover">
+        <div>
+          <div class="subtle">ALBUM</div>
+          <h1 class="h-title">Our Love Album (Birthday Edition)</h1>
+          <div class="meta">
+            <span>By Dio Aria</span>
+            <span>•</span>
+            <span>Featuring Marisa Fitriana Wulandari</span>
+            <span>•</span>
+            <span>2025 · 7 tracks · 17 min</span>
+          </div>
+
+          <!-- ▶ tombol ini akan play/pause album.mp3 -->
+          <div class="controls" style="margin-top:12px">
+            <button class="btn-play" title="Play" aria-label="Play/Pause">▶</button>
+            <button class="btn-ghost" title="Like" style="color:#fff">♡</button>
+            <button class="btn-ghost" title="Download" style="color:#fff">⇩</button>
+            <button class="btn-ghost" title="More" style="color:#fff">⋯</button>
+          </div>
+
+          <div class="subtle" style="margin-top:8px">
+            08,011,2005 monthly listeners • 2025 Us Records
+          </div>
+
+          <div class="contributors">
+            <div class="person">
+              <img src="assets/Profil01.jpg" class="avatar" alt="dio" />
+              <div>
+                <div>Dio Aria Mahesa</div>
+                <div class="role">Boyfiee</div>
+              </div>
+            </div>
+            <div class="person">
+              <img src="assets/Profil02.jpg" class="avatar" alt="marisa" />
+              <div>
+                <div>Marisa Fitriana Wulandari</div>
+                <div class="role">Mine &lt;3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tracklist with thumbnail column -->
+      <section class="tracklist" aria-label="Tracklist">
+        <div class="head">
+          <div>#</div>
+          <div></div>
+          <div>Title</div>
+          <div>Album</div>
+          <div>Duration</div>
+        </div>
+
+        <!-- ROW 1 -->
+        <div class="row playing">
+          <div class="num">01</div>
+          <div class="cover-cell">
+            <img class="track-thumb" src="assets/Track01.jpg" alt="Intro cover">
+          </div>
+          <div class="title">
+            <a href="track1.html" data-autoplay-next>Intro: The First Hello</a>
+            <span class="album">Love at First Hello EP</span>
+          </div>
+          <div class="subtle">Her smile &amp; every little moment with you</div>
+          <div class="end">
+            <span class="like liked" title="Liked">♥</span>
+            <span class="dur">0:53</span>
+            <button class="more" aria-label="More">⋯</button>
+          </div>
+        </div>
+
+        <!-- ROW 2 -->
+        <div class="row">
+          <div class="num">02</div>
+          <div class="cover-cell">
+            <img class="track-thumb" src="assets/Track02.jpg" alt="Heartbeat cover">
+          </div>
+          <div class="title">
+            <a href="track2.html" data-autoplay-next>Heartbeat Moment</a>
+            <span class="album">Heartbeat Forever Collection</span>
+          </div>
+          <div class="subtle">the girl who makes distance feel small</div>
+          <div class="end">
+            <span class="like liked">♥</span>
+            <span class="dur">3:12</span>
+            <button class="more">⋯</button>
+          </div>
+        </div>
+
+        <!-- ROW 3 -->
+        <div class="row">
+          <div class="num">03</div>
+          <div class="cover-cell">
+            <img class="track-thumb" src="assets/Track03.jpg" alt="Night Talks cover">
+          </div>
+          <div class="title">
+            <a href="track3.html" data-autoplay-next>Night Talks &amp; Giggles</a>
+            <span class="album">Midnight Memories Vol. 1</span>
+          </div>
+          <div class="subtle">memories, hope, and a missing you heart</div>
+          <div class="end">
+            <span class="like liked">♥</span>
+            <span class="dur">2:47</span>
+            <button class="more">⋯</button>
+          </div>
+        </div>
+
+        <!-- ROW 4 -->
+        <div class="row">
+          <div class="num">04</div>
+          <div class="cover-cell">
+            <img class="track-thumb" src="assets/Track04.jpg" alt="Miles Between cover">
+          </div>
+          <div class="title">
+            <a href="track4.html" data-autoplay-next>Miles Between, Hearts Aligned</a>
+            <span class="album">Distance Never Wins LP</span>
+          </div>
+          <div class="subtle">Soundtrack of a long-distance love worth every mile</div>
+          <div class="end">
+            <span class="dur">3:33</span>
+            <button class="more">⋯</button>
+          </div>
+        </div>
+
+        <!-- ROW 5 -->
+        <div class="row">
+          <div class="num">05</div>
+          <div class="cover-cell">
+            <img class="track-thumb" src="assets/Track05.jpg" alt="Promise Interlude cover">
+          </div>
+          <div class="title">
+            <a href="track5.html" data-autoplay-next>Promise Interlude</a>
+            <span class="album">Promise Symphony Edition</span>
+          </div>
+          <div class="subtle">the universe when it decided to bring us together</div>
+          <div class="end">
+            <span class="dur">1:21</span>
+            <button class="more">⋯</button>
+          </div>
+        </div>
+
+        <!-- ROW 6 -->
+        <div class="row">
+          <div class="num">06</div>
+          <div class="cover-cell">
+            <img class="track-thumb" src="assets/Track06.jpg" alt="Birthday Symphony cover">
+          </div>
+          <div class="title">
+            <a href="track6.html" data-autoplay-next>Birthday Symphony</a>
+            <span class="album">Birthday Special Deluxe</span>
+          </div>
+          <div class="subtle">my favorite person on this planet</div>
+          <div class="end">
+            <span class="like liked">♥</span>
+            <span class="dur">4:02</span>
+            <button class="more">⋯</button>
+          </div>
+        </div>
+
+        <!-- ROW 7 -->
+        <div class="row">
+          <div class="num">07</div>
+          <div class="cover-cell">
+            <img class="track-thumb" src="assets/Track07.jpg" alt="Outro cover">
+          </div>
+          <div class="title">
+            <a href="track7.html" data-autoplay-next>Outro: Forever With You</a>
+            <span class="album">Together Soon OST</span>
+          </div>
+          <div class="subtle">butterflies in my stomach every time I see you</div>
+          <div class="end">
+            <span class="dur">2:18</span>
+            <button class="more">⋯</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

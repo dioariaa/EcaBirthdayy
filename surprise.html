@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Confession — Will You Be My Girlfriend?</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <style>
+    /* kecil2 buat efek hati & modal; aman dicampur sama style.css kamu */
+    .confess-hero{
+      background: var(--card-grad);
+      border:1px solid var(--card-br);
+      border-radius:18px;
+      padding:22px;
+      display:grid;
+      grid-template-columns:300px 1fr;
+      gap:22px;
+      margin-bottom:18px;
+    }
+    .confess-cover{height:300px;width:100%;object-fit:cover;border-radius:18px}
+    .cta{
+      display:flex;gap:12px;margin-top:14px;flex-wrap:wrap
+    }
+    .btn-yes,.btn-no{
+      border:1px solid #2a2a2a;border-radius:12px;
+      padding:12px 16px;background:#201f21;color:#fff;cursor:pointer;font-weight:600
+    }
+    .btn-yes{background:var(--accent); color:#0b0b0b}
+    .btn-yes:hover{filter:brightness(1.05)}
+    .btn-no:hover{background:#262626}
+    /* hearts */
+    .hearts{pointer-events:none;position:fixed;inset:0;overflow:hidden}
+    .heart{
+      position:absolute;font-size:20px;opacity:.9;animation:float 4s linear forwards
+    }
+    @keyframes float{
+      0%{transform:translateY(0) scale(1);opacity:1}
+      100%{transform:translateY(-120vh) scale(1.4);opacity:0}
+    }
+    /* modal */
+    .modal{
+      position:fixed;inset:0;background:rgba(0,0,0,.6);
+      display:none;align-items:center;justify-content:center;z-index:50
+    }
+    .modal.open{display:flex}
+    .dialog{
+      background:#121212;border:1px solid var(--stroke);border-radius:16px;
+      padding:22px;max-width:520px;width:92%
+    }
+    .dialog h3{margin:0 0 8px 0}
+    .dialog p{color:var(--muted)}
+    .dialog .ok{margin-top:14px;background:var(--accent);border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}
+  </style>
+</head>
+
+<!-- ganti dengan lagu pengakuanmu -->
+<body data-audio="assets/audio/confess.mp3">
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">❤️ Our Playlist Of Love</div>
+      <nav class="nav">
+        <a href="index.html">Welcomee</a>
+        <a href="album.html">Our Love Album</a>
+        <a href="track7.html">Outro: Forever With You</a>
+        <a class="active" href="surprise.html">Confession</a>
+      </nav>
+    </aside>
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="home-pill">💌 Confession</div>
+      <div class="search"><span>🔎</span><input placeholder="Search" /></div>
+      <div class="date">08 November 2025</div>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+      <section class="confess-hero">
+        <img src="assets/Last.jpg" class="confess-cover" alt="Our moments">
+        <div>
+          <h1 class="h-title">Will you be my girlfriend, Eca?</h1>
+          <div class="meta">
+            <span>From Dio — with all my heart</span>
+            <span>•</span>
+            <span>We made it this far, let’s name it.</span>
+          </div>
+
+          <div class="controls" style="margin-top:12px">
+            <!-- tombol play tetap jadi controller audio -->
+            <button class="btn-play" title="Play/Pause" aria-label="Play/Pause">▶</button>
+            <button class="btn-ghost" style="color:#fff">♡</button>
+            <button class="btn-ghost" style="color:#fff">⋯</button>
+          </div>
+
+          <div class="cta">
+            <button class="btn-yes" id="yesBtn">Yes 💖</button>
+            <button class="btn-no" id="noBtn">Maybe later 🙂</button>
+          </div>
+
+          <div class="chips" style="margin-top:12px">
+            <span class="chip">LDR Promise</span>
+            <span class="chip">Real Hugs Soon</span>
+            <span class="chip">Officially Us</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="tabs" style="margin-top:6px"><span class="active">Message</span></div>
+      <section class="lyrics" style="background:rgba(90,69,96,.22)">
+        <p class="lyric-line">I don’t want to rush what’s meant to be,</p>
+        <p class="lyric-line">but I also don’t want to miss it.</p>
+        <p class="lyric-line">So here I am, asking softly</p>
+        <p class="lyric-line">can we call this love ours?</p>
+        <p class="lyric-line lyric-muted">If your answer is yes, I’ll hold it gently.</p>
+        <p class="lyric-line lyric-muted">If not yet, I’ll waitstill yours.</p>
+      </section>
+    </main>
+  </div>
+
+  <!-- hearts layer & modal -->
+  <div class="hearts" id="hearts"></div>
+
+  <div class="modal" id="modal">
+    <div class="dialog">
+      <h3 id="modalTitle">Yay! 💍</h3>
+      <p id="modalText">Thank you for saying yes. From now on, it’s officially us.</p>
+      <button class="ok" id="okBtn">OK</button>
+    </div>
+  </div>
+
+  <script>
+    // hearts burst on YES
+    const hearts = document.getElementById('hearts');
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn  = document.getElementById('noBtn');
+    const modal  = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalText  = document.getElementById('modalText');
+    const okBtn  = document.getElementById('okBtn');
+
+    function burstHearts(count=24){
+      for(let i=0;i<count;i++){
+        const el = document.createElement('div');
+        el.className = 'heart';
+        el.textContent = '❤️';
+        el.style.left = Math.random()*100 + 'vw';
+        el.style.bottom = '-10vh';
+        el.style.animationDuration = (3 + Math.random()*2) + 's';
+        el.style.fontSize = (18 + Math.random()*14) + 'px';
+        hearts.appendChild(el);
+        setTimeout(()=>el.remove(), 5000);
+      }
+    }
+
+    yesBtn.addEventListener('click', ()=>{
+      burstHearts(36);
+      localStorage.setItem('confessAnswer','yes');
+      modalTitle.textContent = 'Yay! 💖';
+      modalText.textContent = 'Thank you for saying yes. From this moment, it’s officially us.';
+      modal.classList.add('open');
+    });
+
+    noBtn.addEventListener('click', ()=>{
+      localStorage.setItem('confessAnswer','later');
+      modalTitle.textContent = 'It’s okay 🙂';
+      modalText.textContent = 'Take your time. I’ll be here, patiently, still choosing you every day.';
+      modal.classList.add('open');
+    });
+
+    okBtn.addEventListener('click', ()=> modal.classList.remove('open'));
+
+    // if she opens again, personalize a bit
+    const answer = localStorage.getItem('confessAnswer');
+    if(answer === 'yes'){
+      setTimeout(()=>burstHearts(12), 600);
+    }
+  </script>
+</body>
+</html>
