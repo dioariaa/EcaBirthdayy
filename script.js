@@ -90,6 +90,21 @@
   setIcon();
 })();
 
-<button id="navToggle" class="nav-toggle" aria-label="Open menu">☰</button>
+// simple sidebar toggle for mobile
+document.addEventListener('click', (e)=>{
+  const toggle = document.getElementById('navToggle');
+  const sidebar = document.querySelector('.sidebar');
+  if(!toggle || !sidebar) return;
+});
+(function(){
+  const btn = document.getElementById('navToggle');
+  const sidebar = document.querySelector('.sidebar');
+  if(!btn || !sidebar) return;
+  btn.addEventListener('click', ()=> {
+    sidebar.classList.toggle('open');
+    // if using CSS to show .sidebar.open on mobile:
+  });
+})();
+
 
 
