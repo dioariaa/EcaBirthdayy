@@ -193,3 +193,117 @@
   }
   .end{gap:8px}
 }
+/* ========== Responsive additions (mobile-first) ========== */
+
+/* -- basic container -- */
+.layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr; /* mobile: single column */
+  grid-template-rows: auto 1fr; /* topbar + content */
+}
+
+/* Sidebar becomes top menu on mobile (hidden by default) */
+.sidebar {
+  display: none; /* mobile hide */
+}
+
+/* Topbar */
+.topbar {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:0.6rem;
+  height:56px;
+  background:var(--bg);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+
+/* Content area */
+.content {
+  padding: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* HERO cover responsive */
+.hero {
+  display:flex;
+  gap: 14px;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.cover, .album-cover, .confess-cover {
+  width:100%;
+  height: auto;
+  border-radius:12px;
+  object-fit: cover;
+}
+
+/* Controls: make buttons touch-friendly */
+.controls .btn-play,
+.btn-ghost {
+  min-width:44px;
+  min-height:44px;
+  padding:0.5rem;
+  font-size:1.05rem;
+}
+
+/* Tracklist rows: stack on mobile */
+.tracklist .head { display:none; } /* hide table head on mobile */
+.tracklist .row {
+  display:grid;
+  grid-template-columns: auto 1fr;
+  gap:8px;
+  align-items:center;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.tracklist .row .cover-cell { display:block; width:56px; }
+.tracklist .row .num { display:none; }
+.tracklist .row .end { justify-self:end; }
+
+/* Lyrics: more vertical spacing for mobile read */
+.lyrics { line-height:1.6; font-size:0.98rem; padding: 12px; }
+
+/* ========== Tablet & desktop breakpoints ========== */
+
+/* tablet: two-column layout with sidebar on the left */
+@media (min-width: 768px) {
+  .layout {
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  .sidebar {
+    display:block;
+    position: sticky;
+    top:0;
+    height: calc(100vh - 0px);
+    padding:1rem;
+  }
+  .topbar {
+    grid-column: 2 / 3;
+    height:64px;
+    padding:0.75rem 1rem;
+  }
+  .content {
+    padding: 1.25rem;
+  }
+
+  /* tracklist: show table-like layout */
+  .tracklist .head { display:grid; grid-template-columns: 40px 72px 1fr 1fr 80px; gap:12px; font-size:0.85rem; color:var(--muted); margin-bottom:10px; }
+  .tracklist .row { grid-template-columns: 40px 72px 1fr 1fr 80px; gap:12px; align-items:center; }
+  .tracklist .row .num { display:block; }
+  .tracklist .row .cover-cell { width:72px; }
+}
+
+/* desktop: wider spacing, bigger cover */
+@media (min-width: 1100px) {
+  .content { max-width:1200px; }
+  .hero { flex-direction:row; align-items:center; }
+  .cover { width: 320px; height:320px; }
+  .h-title { font-size:2.2rem; }
+  .controls .btn-play { font-size:1.25rem; padding:0.7rem 1rem; }
+}
+
+
