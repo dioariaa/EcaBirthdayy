@@ -89,3 +89,7 @@
 
   setIcon();
 })();
+
+<button id="navToggle" class="nav-toggle" aria-label="Open menu">☰</button>
+
+
